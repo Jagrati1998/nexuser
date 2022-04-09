@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import AddUser from './components/add-user.component'
+import AddBlog from './components/addblog.component'
+
 
 
 
@@ -48,7 +50,7 @@ function App() {
               <Route  exact  path="/add-user" element={<AddUser/>} />  
               <Route  exact  path="/update-user/:id" element={<AddUser />} />   
               <Route  exact path="/show-user"element={<AddUser/>}  /> 
-              <Route  exact path="/add-blog" element={<AddUser/>} /> 
+              <Route  exact path="/add-blog" element={<AddBlog/>} /> 
               <Route exact path="/show-blog" element={<AddUser/>}  /> 
               </Routes>   
               </div> 
