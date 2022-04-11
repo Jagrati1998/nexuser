@@ -8,10 +8,9 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 const moment = require('moment');
 moment().format('YYYY-MM-DD');
-export default class Userlist extends Component 
-{
-  constructor(props) 
-  {
+
+export default class UserList extends Component {
+  constructor(props) {
     super(props)
     this.deleteUser = this.deleteUser.bind(this)
   }
@@ -27,44 +26,34 @@ export default class Userlist extends Component
       .catch((error) => {
         console.log(error)
       })
-    }
+  }
  
-  render()
- { 
-   return 
-   (
+  render() {
+    return (
      
     <tr>
+    
     <td>{this.props.obj.imagepath}</td>
-    <td>{this.props.obj.fname}</td>
-    <td>{this.props.obj.lname}</td>
-    <td>{moment(this.props.obj.dob).format('YYYY-MM-DD')}</td>
-    <td>{this.props.obj.email}</td>
-    <td>
-    <Link
+       
+       <td>{this.props.obj.fname}</td>
+      <td>{this.props.obj.lname}</td>
+       <td>{moment(this.props.obj.dob).format('YYYY-MM-DD')}</td>
+       <td>{this.props.obj.email}</td>
+       
+      
+       <td>
+       <Link
          className="edit-link" path={"/show-user/"}
          to={'/update-user/' + this.props.obj._id}
          >
-        <BorderColorIcon/>
-    </Link>
-    <Button onClick={this.deleteUser} size="sm" variant="danger"> <DeleteIcon/> </Button> 
-    </td>
-    </tr>
-    )
-    }
-}
-        
-    
-   
-   
-   
-
-    
-       
-       
-       
-      
-      
-       
+            <BorderColorIcon/>
+         </Link>
+         <Button onClick={this.deleteUser} size="sm" variant="danger">
+        <DeleteIcon/>
+         </Button>  
+        </td>
+      </tr>
      
-   
+   )
+ }
+}

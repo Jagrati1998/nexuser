@@ -9,7 +9,10 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import AddUser from './components/add-user.component'
 import AddBlog from './components/addblog.component'
-
+import ShowUser from './components/showuser.componet'
+import ShowBlog from './components/showblog.component'
+import UpdateUser from './components/updateuser.component'
+//import AddBlog from './components/addblog.component'
 
 
 
@@ -48,10 +51,10 @@ function App() {
               <Routes>                               
               <Route exact path="/" element={<AddUser/>}/>  
               <Route  exact  path="/add-user" element={<AddUser/>} />  
-              <Route  exact  path="/update-user/:id" element={<AddUser />} />   
-              <Route  exact path="/show-user"element={<AddUser/>}  /> 
+              <Route  exact  path="/update-user/:id" element={<UpdateUser />} />   
+              <Route  exact path="/show-user"element={<ShowUser/>}  /> 
               <Route  exact path="/add-blog" element={<AddBlog/>} /> 
-              <Route exact path="/show-blog" element={<AddUser/>}  /> 
+              <Route exact path="/show-blog" element={<ShowBlog/>}  /> 
               </Routes>   
               </div> 
              </Col>                   

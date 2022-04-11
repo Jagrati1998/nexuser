@@ -11,7 +11,7 @@ const blogRoute = require("./routes/blog.route")
 
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost:27017/usernex');//connect mongodb collection users
+mongoose.connect('mongodb://localhost:27017/nexuser');//connect mongodb collection users
 
 var db = mongoose.connection;
 

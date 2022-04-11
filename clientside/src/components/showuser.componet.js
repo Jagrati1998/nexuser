@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
-import Userlist from './userlistComponent';
+import UserList from './userlist.componet';
 
 export default class ShowUser extends Component {
   state = 
@@ -21,7 +21,7 @@ export default class ShowUser extends Component {
     DataTable()
     {
       return this.state.users.map((res, i) => {
-      return <Userlist obj={res} key={i} />;
+      return <UserList obj={res} key={i} />;
     });
   }
  render() {
