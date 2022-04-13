@@ -15,7 +15,7 @@ blogRoutes.post('/add-blog', (req, res, next) => {
     } else {
      // console.log("jj");
      // res.json(data)
-     res.json("inserted")
+     res.json("insfgffghgerted")
     }
   })
 })
@@ -31,16 +31,7 @@ blogRoutes.route('/blog').get((req, res) => {
     }
   })
 })
-blogRoutes.route('/blog').get((req, res) => {
-  blogSchema.find((error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
-     // res.json("inserted")
-    }
-  })
-})
+
 blogRoutes.route('/delete-blog/:id').delete((req, res, next) => {
   blogSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {

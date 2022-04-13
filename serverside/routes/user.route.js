@@ -107,47 +107,51 @@ router.get("/getuser/:id",async(req,res)=>{
 //   })
 // })
 
-// Update User
-// router.put("/updateuser/:id",async(req,res)=>{
-//   try {
-//       const {id} = req.params;
+//Update User
+router.put("/updateuser/:id",async(req,res)=>{
+  try {
+      const {id} = req.params;
+      console.log(req.params);
 
-//       const updateduser =  datauser.findByIdAndUpdate({_id:id},req.body,{new:true });
-//       console.log(userindividual);
-//       res.status(201).json(updateduser)
+      const updateduser = await datauser.findByIdAndUpdate({_id:id});
+      console.log(updateduser);
+     // console.log(userindividual);
+      res.status(201).json(updateduser);
+      res.json(updateduser)
+       console.log('user updated successfully !')
 
          
      
           
 
-//       //console.log(updateduser);
-//      // res.json(updateduser)
-//     //  res.send('Add a book')
-//       //res.status(201).json(updateduser);
 
-//   } catch (error) {
-//       res.status(422).json(error);
-//   }
-// })
+     // res.json(updateduser)
+    //  res.send('Add a book')
+      //res.status(201).json(updateduser);
 
-
-router.put('/update-user/:id',(req, res, next) => {
-  datauser.findByIdAndUpdate(
-    req.params.id,
-    {
-      $set: req.body,
-    },
-    (error, data) => {
-      if (error) {
-        return next(error)
-        console.log(error)
-      } else {
-        res.json(data)
-        console.log('user updated successfully !')
-      }
-    },
-  )
+  } catch (error) {
+      res.status(422).json(error);
+  }
 })
+
+
+// router.put('/update-user/:id',(req, res, next) => {
+//   datauser.findByIdAndUpdate(
+//     req.params.id,
+//     {
+//       $set: req.body,
+//     },
+//     (error, data) => {
+//       if (error) {
+//         return next(error)
+//         console.log(error)
+//       } else {
+//         res.json(data)
+//         console.log('user updated successfully !')
+//       }
+//     },
+//   )
+// })
 
 // Delete User
 router.route('/delete-user/:id').delete((req, res, next) => {
