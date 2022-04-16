@@ -108,12 +108,24 @@ router.get("/getuser/:id",async(req,res)=>{
 // })
 
 //Update User
-router.put("/updateuser/:id",async(req,res)=>{
+router.put("/updateuser/:id", upload.single('profileImg'),async(req,res)=>{
   try {
+    const url = req.protocol + '://' + req.get('host')
       const {id} = req.params;
       console.log(req.params);
 
-      const updateduser = await datauser.findByIdAndUpdate({_id:id});
+      const user = new datauser({
+        _id: id,
+        fname: req.body.fname,
+        lname: req.body.lname,
+        dob: req.body.dob,
+        email: req.body.email,
+        password: req.body.password,
+       // imagepath: url + '/public/images/' + req.file.filename
+        imagepath:   "/home/jagrati/usernex/server"+'/public/images/' + req.file.filename
+    });
+
+      const updateduser = await datauser.findByIdAndUpdate(id, user);
       console.log(updateduser);
      // console.log(userindividual);
       res.status(201).json(updateduser);
